@@ -10,13 +10,8 @@ public class AnimalLookAtPlayer : MonoBehaviour {
     private AudioSource audioSource;
     private SpriteRenderer spriteRenderer;
 
-
-	public GameObject animalUI;
 	public static bool animalIsActive = false;
 
-	public GameObject miniMap;
-
-    private bool inMenu = false;
 
 
     // Use this for initialization
@@ -39,28 +34,6 @@ public class AnimalLookAtPlayer : MonoBehaviour {
 
     }
 	public void AnimalPressed(){
-	    if (inMenu)
-	    {
-	        animalUI.SetActive(false);
-	        animalIsActive = false;
-	        Cursor.lockState = CursorLockMode.Locked;
-	        Cursor.visible = false;
-	        Time.timeScale = 1f;
-	        miniMap.SetActive(true);
-
-	        inMenu = !inMenu;
-	    }
-	    else
-	    {
-	        animalUI.SetActive(true);
-	        Time.timeScale = 0f;
-	        animalIsActive = true;
-	        Cursor.lockState = CursorLockMode.None;
-	        Cursor.visible = true;
-	        miniMap.SetActive(false);
-
-	        inMenu = !inMenu;
-        }
-	    
+        AnimalUI.instance.openUI();	    
 	}
 }
