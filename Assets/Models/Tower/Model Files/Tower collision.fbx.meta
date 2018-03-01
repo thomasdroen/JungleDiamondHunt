@@ -1,0 +1,141 @@
+fileFormatVersion: 2
+guid: bfb89854434b60b47a0b5f1221aac302
+timeCreated: 1517426042
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: stairs base collision
+    100002: Stairs middle collision
+    100004: tower base collision
+    100006: //RootNode
+    100008: Tower floor collision
+    100010: Tower middle collision
+    100012: Tower top collision
+    100014: Wall connector collision
+    100016: Tower_base.003
+    100018: Tower support collision
+    400000: stairs base collision
+    400002: Stairs middle collision
+    400004: tower base collision
+    400006: //RootNode
+    400008: Tower floor collision
+    400010: Tower middle collision
+    400012: Tower top collision
+    400014: Wall connector collision
+    400016: Tower_base.003
+    400018: Tower support collision
+    2100000: top
+    2100002: No Name
+    2100004: middle
+    2100006: base
+    2100008: floor
+    2100010: connector
+    2100012: Base support
+    2300000: stairs base collision
+    2300002: Stairs middle collision
+    2300004: tower base collision
+    2300006: Tower floor collision
+    2300008: Tower middle collision
+    2300010: Tower top collision
+    2300012: Wall connector collision
+    2300014: Tower_base.003
+    2300016: Tower support collision
+    3300000: stairs base collision
+    3300002: Stairs middle collision
+    3300004: tower base collision
+    3300006: Tower floor collision
+    3300008: Tower middle collision
+    3300010: Tower top collision
+    3300012: Wall connector collision
+    3300014: Tower_base.003
+    3300016: Tower support collision
+    4300000: Tower top collision
+    4300002: Stairs middle collision
+    4300004: stairs base collision
+    4300006: Tower middle collision
+    4300008: tower base collision
+    4300010: Tower floor collision
+    4300012: Wall connector collision
+    4300014: Tower_base.003
+    4300016: Tower support collision
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

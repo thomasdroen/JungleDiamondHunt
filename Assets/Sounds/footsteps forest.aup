@@ -1,0 +1,131 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="footsteps forest_data" version="1.3.0" audacityversion="2.1.2" sel0="0.0000000000" sel1="0.4219954649" vpos="656" h="0.0000000000" zoom="289.0991952702" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags/>
+	<wavetrack name="footsteps forest" channel="0" linked="1" mute="1" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="236746">
+				<waveblock start="0">
+					<simpleblockfile filename="e00007a1.au" len="7322" min="-0.060182" max="0.06198" rms="0.004527"/>
+				</waveblock>
+				<waveblock start="7322">
+					<simpleblockfile filename="e000055b.au" len="229424" min="-0.974416" max="0.910216" rms="0.027683"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="footsteps forest" channel="1" linked="0" mute="1" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="236746">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000f5e.au" len="7322" min="-0.058136" max="0.037768" rms="0.003605"/>
+				</waveblock>
+				<waveblock start="7322">
+					<simpleblockfile filename="e00002b7.au" len="229424" min="-0.85068" max="0.763571" rms="0.02279"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Lydspor" channel="0" linked="1" mute="1" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.412538" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="21966">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000c4b.au" len="21966" min="-0.170987" max="0.168307" rms="0.010201"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Lydspor" channel="1" linked="0" mute="1" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.412538" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="21966">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000f75.au" len="21966" min="-0.083315" max="0.119525" rms="0.008069"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Lydspor" channel="0" linked="1" mute="1" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="21187">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000c01.au" len="21187" min="-0.41086" max="0.343452" rms="0.019032"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Lydspor" channel="1" linked="0" mute="1" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="21187">
+				<waveblock start="0">
+					<simpleblockfile filename="e000094d.au" len="21187" min="-0.352614" max="0.272972" rms="0.018104"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Lydspor" channel="0" linked="1" mute="1" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="22203">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000af4.au" len="22203" min="-0.148787" max="0.109167" rms="0.018284"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Lydspor" channel="1" linked="0" mute="1" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="22203">
+				<waveblock start="0">
+					<simpleblockfile filename="e000032a.au" len="22203" min="-0.109297" max="0.111753" rms="0.010915"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Lydspor" channel="0" linked="1" mute="1" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="17237">
+				<waveblock start="0">
+					<simpleblockfile filename="e00009ab.au" len="17237" min="-0.08597" max="0.099623" rms="0.009373"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Lydspor" channel="1" linked="0" mute="1" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="17237">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000edc.au" len="17237" min="-0.141507" max="0.088472" rms="0.008197"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Lydspor" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="18610">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000c58.au" len="18610" min="-0.130488" max="0.10707" rms="0.020248"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Lydspor" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="18610">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000107.au" len="18610" min="-0.115967" max="0.070451" rms="0.017917"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>
