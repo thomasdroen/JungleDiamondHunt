@@ -1,0 +1,69 @@
+Q1:
+What animal is considered the king of the jungle?
+
+A1(correct):
+The Lion
+
+Extra info:
+
+
+A2(wrong):
+Tiger
+
+A3(wrong):
+Gorilla
+
+A4(wrong):
+
+
+
+Q2:
+What is 2!+3!?
+
+A1(correct):
+8
+
+Ekstra info:
+When using ! in math, you are hiding other factors of the equation.
+2!+3! can be written (1*2)+(1*2*3) which is 2 + 6 = 8.
+
+Hint:
+It is important to notice the "!" after the numbers, it makes a crucial difference.
+
+A2(wrong):
+5
+
+A3(wrong):
+6
+
+
+Q3:
+What are the three colors of the norwegian flag?
+
+A1(correct):
+Red, white and blue
+
+A2(wrong):
+Red, green and blue
+
+A3(wrong):
+Yellow and blue
+
+A4(wrong):
+Red and white
+
+
+Q4:
+What is the capital city of Norway?
+
+A1(correct):
+Oslo
+
+A2(wrong):
+Aalesund(Ålesund)
+
+A3(wrong):
+Bergen
+
+A4(wrong):
+Trondheim
