@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer), typeof(AudioSource),typeof(CapsuleCollider))]
-public class AnimalLookAtPlayer : MonoBehaviour {
+public class AnimalScript : MonoBehaviour {
 
     public AnimalPreset animalPreset;
 
@@ -28,11 +28,6 @@ public class AnimalLookAtPlayer : MonoBehaviour {
         }
 	}
 	
-	// Update is called once per frame
-	void Update () {
-        transform.LookAt(Camera.main.transform.position, Vector3.up);
-
-    }
 	public void AnimalPressed(){
         AnimalUI.instance.openUI();	    
 	}

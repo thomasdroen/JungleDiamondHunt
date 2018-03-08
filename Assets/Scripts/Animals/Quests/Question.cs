@@ -16,11 +16,4 @@ public class Answer
     public bool correct;
     [TextArea]
     public string extraInfo;
-
-    //public answer(string answerText, bool correct, string extraInfo)
-    //{
-    //    this.answerText = answerText;
-    //    this.correct = correct;
-    //    this.extraInfo = extraInfo;
-    //}
 }

@@ -22,25 +22,38 @@ public class AnimalUI : MonoBehaviour
     public Text extraInfo;
     public Text continueText;
     [Space]
-    public Quest[] quests;
+    public List<Quest> quests;
+    [Space]
+    public Text collectibleCounterText;
+    public CollectibleSpawns collectibleSpawns;
     [Space]
     public GameObject minimap;
+    [HideInInspector]
+    private int collectibleCounter;
+    private int collectiblesNeeded;
 
     private Quest activeQuest;
     private bool inMenu = false;
+
+    private RectTransform animalTextUI;
+    private float originalUIWidth;
 
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
+            collectibleCounter = 0;
         }
     }
 
     void Start()
     {
         hideResultUI();
+        collectibleCounterText.gameObject.SetActive(false);
         transform.GetChild(0).gameObject.SetActive(false);
+        animalTextUI = QuestDescription.transform.parent.GetComponent<RectTransform>();
+        originalUIWidth = animalTextUI.sizeDelta.x;
     }
 
     public void openUI()
@@ -63,9 +76,36 @@ public class AnimalUI : MonoBehaviour
             Cursor.visible = true;
             minimap.SetActive(false);
 
-            selectRandomQuest();
+            if (activeQuest == null)
+            {
+                selectRandomQuest();
+            }
+            else
+            {
+                updateQuest();
+            }
 
             inMenu = !inMenu;
+        }
+    }
+
+    private void updateQuest()
+    {
+        if (!isQuestion(activeQuest))
+        {
+            CollectionQuest colQuest = (CollectionQuest)activeQuest;
+            if (collectibleCounter >= collectiblesNeeded)
+            {
+                Debug.Log(colQuest.finishWithQuestText);
+                QuestDescription.text = colQuest.finishWithQuestText;
+                collectibleCounterText.gameObject.SetActive(false);
+                finishQuest();
+            }
+            else
+            {
+                string notEnoughString = colQuest.notEnough.Replace("$", "" + collectibleCounter);
+                QuestDescription.text = notEnoughString;
+            }
         }
     }
 
@@ -81,13 +121,17 @@ public class AnimalUI : MonoBehaviour
 
         hideResultUI();
 
+        QuestDescription.text = quest.questDescription;
+
         if (isQuestion(quest))
         {
-            Debug.Log("question loaded");
             Question question = (Question)quest;
-            QuestDescription.text = question.questDescription;
 
-            Shuffle(new System.Random(), question.answers);
+            RandomExtensions.Shuffle(new System.Random(), question.answers);
+
+            toggleButtons(true, true);
+
+            animalTextUI.sizeDelta = new Vector2(originalUIWidth, animalTextUI.sizeDelta.y);
 
             int i = 0;
             foreach (Button button in buttons)
@@ -106,42 +150,37 @@ public class AnimalUI : MonoBehaviour
             RectTransform buttonRect = buttons[0].GetComponent<RectTransform>();
             float buttonHeight = buttonRect.sizeDelta.y;
 
-            buttonGroup.spacing = (buttonHeight * (buttons.Length - question.answers.Length)) / 3;
+            buttonGroup.spacing = 3 + (buttonHeight * (buttons.Length - question.answers.Length)) / 3;
 
+        }
+        else
+        {
+            CollectionQuest colQuest = (CollectionQuest)quest;
+            collectibleCounter = 0;
+            collectiblesNeeded = colQuest.numberOfCollectibles;
+            updateCollectibleUI();
+            collectibleSpawns.spawnCollectibles(colQuest.numberOfCollectibles);
+            toggleButtons(false, true);
         }
     }
 
     private void dontNeedMore()
     {
-        hideButtons();
+        toggleButtons(false, true);
         hideResultUI();
         QuestDescription.gameObject.SetActive(true);
         QuestDescription.text = "I have nothing for you to do.";
-        continueText.transform.parent.gameObject.SetActive(true);
-        continueText.text = "Leave";
     }
 
     public void selectRandomQuest()
     {
-        if (quests.Length > 0)
+        if (quests.Count > 0)
         {
-            LoadQuest(quests[Mathf.RoundToInt(UnityEngine.Random.value * (quests.Length - 1))]);
+            LoadQuest(quests[Mathf.RoundToInt(UnityEngine.Random.value * (quests.Count - 1))]);
         }
         else
         {
             Debug.LogError("No quests added!");
-        }
-    }
-
-    private void Shuffle<T>(System.Random rng, T[] array)
-    {
-        int n = array.Length;
-        while (n > 1)
-        {
-            int k = rng.Next(n--);
-            T temp = array[n];
-            array[n] = array[k];
-            array[k] = temp;
         }
     }
 
@@ -154,21 +193,23 @@ public class AnimalUI : MonoBehaviour
         }
         if (isQuestion(activeQuest))
         {
-            hideButtons();
+            toggleButtons(false, false);
             Question question = (Question)activeQuest;
             extraInfo.gameObject.SetActive(true);
-            extraInfo.text = question.answers[index].extraInfo;
+            //extraInfo.text = question.answers[index].extraInfo;
+            QuestDescription.text = question.answers[index].extraInfo;
             continueText.transform.parent.gameObject.SetActive(true);
             if (question.answers[index].correct)
             {
                 correctImage.gameObject.SetActive(true);
                 continueText.text = "Continue";
-                numberOfQuestsNeeded--;
+                finishQuest();
             }
             else
             {
                 wrongImage.gameObject.SetActive(true);
                 continueText.text = "Try again";
+                activeQuest = null;
             }
             
         }
@@ -176,7 +217,7 @@ public class AnimalUI : MonoBehaviour
 
     public void pressContinue()
     {
-        if (numberOfQuestsNeeded > 0)
+        if (activeQuest == null && numberOfQuestsNeeded > 0)
         {
             selectRandomQuest();
         }
@@ -191,12 +232,19 @@ public class AnimalUI : MonoBehaviour
         return quest.GetType() == typeof(Question);
     }
 
-    void hideButtons()
+    void toggleButtons(bool show, bool panel)
     {
-        foreach(Button button in buttons)
+        buttons[0].transform.parent.gameObject.SetActive(show);
+        
+        if(panel)
         {
-            button.gameObject.SetActive(false);
+            buttons[0].transform.parent.parent.gameObject.SetActive(show);
+            animalTextUI.sizeDelta = new Vector2(800, animalTextUI.sizeDelta.y);
         }
+        //foreach(Button button in buttons)
+        //{
+        //    button.gameObject.SetActive(false);
+        //}
     }
 
     void hideResultUI()
@@ -207,6 +255,26 @@ public class AnimalUI : MonoBehaviour
         extraInfo.gameObject.SetActive(false);
     }
 
-    
+    public void collectCollectible()
+    {
+        collectibleCounter++;
+        updateCollectibleUI();
+    }
+
+    private void updateCollectibleUI()
+    {
+        collectibleCounterText.gameObject.SetActive(true);
+        collectibleCounterText.text = "" + collectibleCounter + "/" + collectiblesNeeded;
+    }
+
+    private void finishQuest()
+    {
+        if(activeQuest != null)
+        {
+            numberOfQuestsNeeded--;
+            quests.Remove(activeQuest);
+            activeQuest = null;
+        }
+    }
 
 }

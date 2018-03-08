@@ -28,7 +28,7 @@ public class PlayerInteract : MonoBehaviour
 		Physics.Raycast (transform.position, transform.forward, out rHit, 3f, layerMask);
 		Debug.DrawRay (transform.position, transform.forward * 3, Color.red, 1);
 		if (rHit.collider != null) {
-			rHit.collider.gameObject.GetComponent<AnimalLookAtPlayer> ().AnimalPressed ();
+			rHit.collider.gameObject.GetComponent<AnimalScript> ().AnimalPressed ();
 		}
 	}
 }
