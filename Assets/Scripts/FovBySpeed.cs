@@ -74,13 +74,15 @@ public class FovBySpeed
                 lastSprintInput = run;
             }
 
+
             camera.fieldOfView = Mathf.Lerp(camera.fieldOfView,
                 originalFov * (run > 0 && currentSpeedSqr > walkSpeed * 3 ? sprintTargetFov / originalFov : 1), 0.25f);
+
         }
         else
         {
-            camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, originalFov * FovToSpeedCurve.Evaluate(currentSpeedSqr),
-                0.25f);
+            camera.fieldOfView = Mathf.Lerp(camera.fieldOfView,
+                originalFov * (currentSpeedSqr > walkSpeed * 3 ? FovToSpeedCurve.Evaluate(currentSpeedSqr) : 1), 0.25f);
         }
     }
 

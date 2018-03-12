@@ -19,7 +19,6 @@ public class AnimalUI : MonoBehaviour
     [Space]
     public Image correctImage;
     public Image wrongImage;
-    public Text extraInfo;
     public Text continueText;
     [Space]
     public List<Quest> quests;
@@ -78,7 +77,7 @@ public class AnimalUI : MonoBehaviour
 
             if (activeQuest == null)
             {
-                selectRandomQuest();
+                SelectRandomQuest();
             }
             else
             {
@@ -127,7 +126,7 @@ public class AnimalUI : MonoBehaviour
         {
             Question question = (Question)quest;
 
-            RandomExtensions.Shuffle(new System.Random(), question.answers);
+            new System.Random().Shuffle(question.answers);
 
             toggleButtons(true, true);
 
@@ -172,7 +171,7 @@ public class AnimalUI : MonoBehaviour
         QuestDescription.text = "I have nothing for you to do.";
     }
 
-    public void selectRandomQuest()
+    public void SelectRandomQuest()
     {
         if (quests.Count > 0)
         {
@@ -195,7 +194,6 @@ public class AnimalUI : MonoBehaviour
         {
             toggleButtons(false, false);
             Question question = (Question)activeQuest;
-            extraInfo.gameObject.SetActive(true);
             //extraInfo.text = question.answers[index].extraInfo;
             QuestDescription.text = question.answers[index].extraInfo;
             continueText.transform.parent.gameObject.SetActive(true);
@@ -219,7 +217,7 @@ public class AnimalUI : MonoBehaviour
     {
         if (activeQuest == null && numberOfQuestsNeeded > 0)
         {
-            selectRandomQuest();
+            SelectRandomQuest();
         }
         else
         {
@@ -241,10 +239,7 @@ public class AnimalUI : MonoBehaviour
             buttons[0].transform.parent.parent.gameObject.SetActive(show);
             animalTextUI.sizeDelta = new Vector2(800, animalTextUI.sizeDelta.y);
         }
-        //foreach(Button button in buttons)
-        //{
-        //    button.gameObject.SetActive(false);
-        //}
+
     }
 
     void hideResultUI()
@@ -252,7 +247,6 @@ public class AnimalUI : MonoBehaviour
         wrongImage.gameObject.SetActive(false);
         correctImage.gameObject.SetActive(false);
         continueText.transform.parent.gameObject.SetActive(false);
-        extraInfo.gameObject.SetActive(false);
     }
 
     public void collectCollectible()
