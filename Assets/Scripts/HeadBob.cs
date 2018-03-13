@@ -31,7 +31,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
           //  m_CameraRefocus.GetFocusPoint();
             Vector3 newCameraPosition;
-            if (rigidbodyFirstPersonController.Velocity.magnitude > 0 && rigidbodyFirstPersonController.Grounded)
+            if (rigidbodyFirstPersonController.Velocity.sqrMagnitude > 30 && rigidbodyFirstPersonController.Grounded)
             {
                 Camera.transform.localPosition = motionBob.DoHeadBob(rigidbodyFirstPersonController.Velocity.magnitude*(rigidbodyFirstPersonController.Running ? RunningStrideLengthen : 1f), useHorizontalHeadbob);
                 newCameraPosition = Camera.transform.localPosition;
@@ -44,10 +44,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             Camera.transform.localPosition = newCameraPosition;
 
-            if (!m_PreviouslyGrounded && rigidbodyFirstPersonController.Grounded)
-            {
-                StartCoroutine(jumpAndLandingBob.DoBobCycle());
-            }
+            //if (!m_PreviouslyGrounded && rigidbodyFirstPersonController.Grounded)
+            //{
+            //    StartCoroutine(jumpAndLandingBob.DoBobCycle());
+            //}
 
             m_PreviouslyGrounded = rigidbodyFirstPersonController.Grounded;
           //  m_CameraRefocus.SetFocusPoint();
