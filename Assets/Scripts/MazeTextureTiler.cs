@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class MazeTextureTiler : MonoBehaviour
 {
-
-    public bool update = true;
     [Range(0.1f, 2)]
     public float relativeScale = 1f;
 
