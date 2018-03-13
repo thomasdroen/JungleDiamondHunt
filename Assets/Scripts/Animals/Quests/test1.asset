@@ -15,11 +15,11 @@ MonoBehaviour:
   answers:
   - answerText: 30
     correct: 0
-    extraInfo: Anders is actually not 30 years old, even though he might look that
+    extraInfo: Anders is not actually 30 years old, even though he might look that
       way.
-  - answerText: 45
-    correct: 0
-    extraInfo: No.
   - answerText: 22
     correct: 1
     extraInfo: Yes, anders is 22 years old.
+  - answerText: 25
+    correct: 0
+    extraInfo: No, wrong person.

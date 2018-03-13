@@ -9,22 +9,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88867020886b99b45a38386b0124e49f, type: 3}
-  m_Name: test2
+  m_Name: CapitalOfNorway
   m_EditorClassIdentifier: 
-  questDescription: Which continent is the Philippines located in?
+  questDescription: What is the capital of Norway?
   answers:
-  - answerText: America
-    correct: 0
-    extraInfo: That is wrong.
-  - answerText: Europe
-    correct: 0
-    extraInfo: No, wrong.
-  - answerText: Asia
+  - answerText: Oslo
     correct: 1
-    extraInfo: Yes! the Philippines is located in Asia.
-  - answerText: Oceania
+    extraInfo: Yes, correct.
+  - answerText: Trondheim
     correct: 0
-    extraInfo: Nope.
-  - answerText: Africa
+    extraInfo: No, unfortunately not.
+  - answerText: Bergen
     correct: 0
-    extraInfo: Africa is not correct.
+    extraInfo: No.
+  - answerText: "\xC5lesund"
+    correct: 0
+    extraInfo: Haha, you wish.
+  - answerText: Kristiandsand
+    correct: 0
+    extraInfo: Uh, no. I have no clue how you got that answer.

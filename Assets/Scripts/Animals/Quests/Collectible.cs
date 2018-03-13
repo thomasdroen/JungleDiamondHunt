@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SphereCollider), typeof(Sprite))]
+[RequireComponent(typeof(SphereCollider), typeof(Sprite), typeof(AudioSource))]
 public class Collectible : MonoBehaviour {
 
     public GameObject player;
@@ -22,7 +22,10 @@ public class Collectible : MonoBehaviour {
         if(gameObject.activeSelf && other.gameObject == player)
         {
             AnimalUI.instance.collectCollectible();
-            gameObject.SetActive(false);
+            GetComponent<AudioSource>().Play();
+
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<SphereCollider>().enabled = false;
         }
     }
 

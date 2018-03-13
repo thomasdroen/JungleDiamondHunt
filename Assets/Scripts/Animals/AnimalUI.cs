@@ -110,6 +110,7 @@ public class AnimalUI : MonoBehaviour
 
     public void LoadQuest(Quest quest)
     {
+        Debug.Log(numberOfQuestsNeeded);
         if(numberOfQuestsNeeded <= 0)
         {
             dontNeedMore();
@@ -179,7 +180,7 @@ public class AnimalUI : MonoBehaviour
         }
         else
         {
-            Debug.LogError("No quests added!");
+            dontNeedMore();
         }
     }
 
