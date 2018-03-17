@@ -67,25 +67,25 @@ public class WaterDisabler : MonoBehaviour
             return;
         }
 
-        //if (visibilityLocations.Length > 0)
-        //{
-        //    Vector3 fromMainCamToThis = transform.position - mainCam.gameObject.transform.position;
-        //    float distance = fromMainCamToThis.magnitude;
-        //    Ray ray = new Ray(mainCam.gameObject.transform.position, fromMainCamToThis);
+        if (visibilityLocations.Length > 0)
+        {
+            
 
-        //    foreach (Transform location in visibilityLocations)
-        //    {
-        //        RaycastHit rHit;
-        //        Physics.Raycast(ray, out rHit, distance);
-        //        if (rHit.collider == null)
-        //        {
-        //            //Debug.Log(rHit.collider.gameObject.name);
-        //            waterMesh.enabled = true;
-        //            return;
-        //        }
-        //    }
-        //    waterMesh.enabled = false;
-        //}
+            foreach (Transform location in visibilityLocations)
+            {
+                Vector3 fromMainCamToThis = location.position - mainCam.gameObject.transform.position;
+                float distance = fromMainCamToThis.magnitude;
+                Ray ray = new Ray(mainCam.gameObject.transform.position, fromMainCamToThis);
+                RaycastHit rHit;
+                
+                if (Physics.Raycast(ray, out rHit, distance))
+                {
+                    waterMesh.enabled = false;
+                    return;
+                }
+            }
+            waterMesh.enabled = true;
+        }
 
     }
 }

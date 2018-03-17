@@ -6,11 +6,12 @@ public class PlayerInteract : MonoBehaviour
 {
 
 	private int layerMask = 1 << 8;
+    private Camera cam;
 
 	// Use this for initialization
 	void Start ()
 	{
-		
+        cam = Camera.main;
 	}
 	
 	// Update is called once per frame
@@ -25,10 +26,25 @@ public class PlayerInteract : MonoBehaviour
 	public void Interact ()
 	{
 		RaycastHit rHit;
-		Physics.Raycast (transform.position, transform.forward, out rHit, 3f, layerMask);
-		Debug.DrawRay (transform.position, transform.forward * 3, Color.red, 1);
-		if (rHit.collider != null) {
-			rHit.collider.gameObject.GetComponent<AnimalScript> ().AnimalPressed ();
+		Physics.SphereCast (transform.position, 0.25f, cam.transform.forward, out rHit, 3, layerMask);
+		Debug.DrawRay (transform.position, cam.transform.forward * 3, Color.red, 1);
+        Debug.DrawRay (transform.position+cam.transform.up*0.25f, cam.transform.forward * 3, Color.red, 1);
+        Debug.DrawRay (transform.position-cam.transform.up*0.25f, cam.transform.forward * 3, Color.red, 1);
+        if (rHit.collider) {
+            AnimalScript animal = rHit.collider.gameObject.GetComponent<AnimalScript>();
+            TransitionStart start = rHit.collider.gameObject.GetComponent<TransitionStart>();
+
+            if (animal)
+            {
+                animal.AnimalPressed();
+                return;
+            }
+
+            else if (rHit.collider.gameObject.GetComponent<TransitionStart>())
+            {
+                start.onPlayerInteract(gameObject);
+            }
 		}
 	}
 }
+

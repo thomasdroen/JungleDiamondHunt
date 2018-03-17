@@ -34,3 +34,5 @@ sysinfo.txt
 *.apk
 *.unitypackage
 Assets/Models.meta
+*.orig
+*.orig.meta
