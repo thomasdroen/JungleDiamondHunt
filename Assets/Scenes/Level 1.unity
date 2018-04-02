@@ -7201,6 +7201,31 @@ MonoBehaviour:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 780611a67e8e941a2b3aa96e5915a793, type: 2}
   m_PrefabInternal: {fileID: 794410204}
+--- !u!114 &1910077982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1910077976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c0c4825d3befce409d31c9a4d279691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 211252526}
+  amount: 0.25
+--- !u!65 &1910077983
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1910077976}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9999993, y: 0, z: 2.0029745}
+  m_Center: {x: -0.00000035886146, y: 0, z: 0.0014853479}
 --- !u!1 &1914668481
 GameObject:
   m_ObjectHideFlags: 0

@@ -48,7 +48,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _ReflDistort: 0.44
-    - _RefrDistort: 0.4
+    - _RefrDistort: 0.441
     - _WaveScale: 0.118
     m_Colors:
     - WaveSpeed: {r: 4, g: 4.5, b: -8, a: -3.5}
