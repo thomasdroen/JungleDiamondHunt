@@ -7,6 +7,7 @@ public class MusicChanger : MonoBehaviour {
 
 	public AudioClip jungle;
 	public AudioClip tribe;
+	public AudioClip endSong;
 
     private AudioSource source;
 
@@ -61,5 +62,12 @@ public class MusicChanger : MonoBehaviour {
     {
         source.Pause();
     }
+
+	public void EndGame(){
+		source.Stop();
+		source.clip = endSong;
+		source.Play();
+		source.loop = false;
+	}
 
 }

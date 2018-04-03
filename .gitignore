@@ -36,3 +36,5 @@ sysinfo.txt
 Assets/Models.meta
 *.orig
 *.orig.meta
+*.psd
+*.psd.meta
