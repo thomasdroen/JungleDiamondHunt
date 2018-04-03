@@ -39,10 +39,8 @@ public class PuzzlePiece : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         {
             Debug.LogError("Too many adjacent pieces in " + gameObject.name);
         }
-        Debug.Log(Vector2.Distance(correctPosition, rTransform.position));
 
         panelHeight = transform.parent.parent.GetComponent<RectTransform>().sizeDelta.y;
-        Debug.Log(panelHeight);
 
     }
 

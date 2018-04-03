@@ -1,14 +1,24 @@
 using System;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 using UnityStandardAssets.CrossPlatformInput;
-using UnityStandardAssets.Utility;
 
-namespace UnityStandardAssets.Characters.FirstPerson
+namespace Assets.Scripts
 {
     [RequireComponent(typeof (Rigidbody))]
     [RequireComponent(typeof (CapsuleCollider))]
     public class RigidbodyFirstPersonController : MonoBehaviour
     {
+        public static RigidbodyFirstPersonController player;
+
+        void Awake()
+        {
+            if (player == null)
+            {
+                player = this;
+            }
+        }
+
         [Serializable]
         public class MovementSettings
         {

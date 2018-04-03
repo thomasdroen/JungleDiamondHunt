@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using Assets.Scripts;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,6 +35,7 @@ public class PuzzleUI : MonoBehaviour
     private Camera cam;
 
     private bool UIOpened = false;
+    public Transform mazeTeleport;
 
     void Awake()
     {
@@ -53,7 +56,7 @@ public class PuzzleUI : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            StartCoroutine(FadeInFinishedPuzzle(2));
+            StartCoroutine(TeleportToMaze(0));
         }
     }
 
@@ -158,7 +161,18 @@ public class PuzzleUI : MonoBehaviour
         StopCoroutine(StartTimer());
     }
 
-    IEnumerator FadeInFinishedPuzzle(float time, IEnumerator nextCoroutine = null)
+    public void reset()
+    {
+        StopAllCoroutines();
+        int minutes = Mathf.FloorToInt(timeToFinishPuzzle / 60);
+        int seconds = Mathf.FloorToInt(timeToFinishPuzzle % 60);
+        timerText.text = minutes + ":" + seconds;
+
+        puzzlePieceContainer.gameObject.SetActive(false);
+        finishedPuzzle.canvasRenderer.SetAlpha(0);
+    }
+
+    IEnumerator FadeInFinishedPuzzle(float time)
     {
         finishedPuzzle.canvasRenderer.SetAlpha(1);
 
@@ -173,7 +187,8 @@ public class PuzzleUI : MonoBehaviour
             
             yield return null;
         }
-        Debug.Log("finished fading");
+        StartCoroutine(TranslateCameraFromUI(0.75f));
+        //Debug.Log("finished fading");
     }
 
     IEnumerator StartTimer()
@@ -189,7 +204,19 @@ public class PuzzleUI : MonoBehaviour
             radialTimer.fillAmount = timeLeft / timeToFinishPuzzle;
             yield return null;
         }
-        Debug.Log("Time is up");
+        StartCoroutine(TeleportToMaze(0f));
+        //Debug.Log("Time is up");
     }
 
+    IEnumerator TeleportToMaze(float delay)
+    {
+        yield return StartCoroutine(TranslateCameraFromUI(0.75f));
+        yield return new WaitForSeconds(delay);
+        RigidbodyFirstPersonController.player.enabled = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        RigidbodyFirstPersonController.player.transform.position = mazeTeleport.position;
+
+        reset();
+    }
 }
