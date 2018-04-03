@@ -6,19 +6,19 @@ using Assets.Scripts;
 public class SlowdownField : MonoBehaviour
 {
 
-    public GameObject player;
+    //public GameObject player;
     [Range(0.05f,0.95f)]
     public float amount = 0.5f;
     private RigidbodyFirstPersonController PlayerController;
 
     private void Start()
     {
-        PlayerController = player.GetComponent<RigidbodyFirstPersonController>();
+        PlayerController = RigidbodyFirstPersonController.player;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (gameObject.activeSelf && other.gameObject == player)
+        if (gameObject.activeSelf && other.gameObject == PlayerController.gameObject)
         {
             PlayerController.movementSettings.WaterMultiplier = amount;
         }
@@ -26,7 +26,7 @@ public class SlowdownField : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (gameObject.activeSelf && other.gameObject == player)
+        if (gameObject.activeSelf && other.gameObject == PlayerController.gameObject)
         {
             PlayerController.movementSettings.WaterMultiplier = 1.0f;
         }

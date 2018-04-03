@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
-using UnityStandardAssets.Utility;
 
 namespace Assets.Scripts
 {
@@ -9,6 +8,16 @@ namespace Assets.Scripts
     [RequireComponent(typeof(CapsuleCollider))]
     public class RigidbodyFirstPersonController : MonoBehaviour
     {
+        public static RigidbodyFirstPersonController player;
+
+        void Awake()
+        {
+            if (player == null)
+            {
+                player = this;
+            }
+        }
+
         [Serializable]
         public class MovementSettings
         {

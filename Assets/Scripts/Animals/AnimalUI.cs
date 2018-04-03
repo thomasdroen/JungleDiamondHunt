@@ -20,6 +20,7 @@ public class AnimalUI : MonoBehaviour
     public Image correctImage;
     public Image wrongImage;
     public Text continueText;
+    public Button backButton;
     [Space]
     public List<Quest> quests;
     [Space]
@@ -27,6 +28,8 @@ public class AnimalUI : MonoBehaviour
     public CollectibleSpawns collectibleSpawns;
     [Space]
     public GameObject minimap;
+
+    public GateScript gate;
     [HideInInspector]
     private int collectibleCounter;
     private int collectiblesNeeded;
@@ -90,6 +93,7 @@ public class AnimalUI : MonoBehaviour
 
     private void updateQuest()
     {
+        backButton.gameObject.SetActive(true);
         if (!isQuestion(activeQuest))
         {
             CollectionQuest colQuest = (CollectionQuest)activeQuest;
@@ -98,6 +102,8 @@ public class AnimalUI : MonoBehaviour
                 Debug.Log(colQuest.finishWithQuestText);
                 QuestDescription.text = colQuest.finishWithQuestText;
                 collectibleCounterText.gameObject.SetActive(false);
+                continueText.transform.parent.gameObject.SetActive(true);
+                backButton.gameObject.SetActive(false);
                 finishQuest();
             }
             else
@@ -111,7 +117,8 @@ public class AnimalUI : MonoBehaviour
     public void LoadQuest(Quest quest)
     {
         Debug.Log(numberOfQuestsNeeded);
-        if(numberOfQuestsNeeded <= 0)
+        backButton.gameObject.SetActive(true);
+        if (numberOfQuestsNeeded <= 0)
         {
             dontNeedMore();
             return;
@@ -169,7 +176,9 @@ public class AnimalUI : MonoBehaviour
         toggleButtons(false, true);
         hideResultUI();
         QuestDescription.gameObject.SetActive(true);
-        QuestDescription.text = "I have nothing for you to do.";
+        QuestDescription.text = "You have completed all my quests. The tower is open.";
+        gate.toggleGate(true);
+        backButton.gameObject.SetActive(true);
     }
 
     public void SelectRandomQuest()
@@ -216,14 +225,7 @@ public class AnimalUI : MonoBehaviour
 
     public void pressContinue()
     {
-        if (activeQuest == null && numberOfQuestsNeeded > 0)
-        {
-            SelectRandomQuest();
-        }
-        else
-        {
-            openUI();
-        }
+        SelectRandomQuest();
     }
 
     bool isQuestion(Quest quest)

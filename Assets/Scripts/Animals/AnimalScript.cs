@@ -24,7 +24,6 @@ public class AnimalScript : MonoBehaviour {
             spriteRenderer.sprite = animalPreset.image;
             audioSource.clip = animalPreset.sound;
 
-            Debug.Log(animalPreset.name + " the " + animalPreset.species);
         }
 	}
 	
