@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Assets.Scripts;
 
 public class GameOverManager : MonoBehaviour {
 
 	public float restartedDelay =5f;
 	public DiamondManager diamond;
+	RigidbodyFirstPersonController player;
 
 	public MusicChanger musicChanger; 
 
@@ -14,6 +16,7 @@ public class GameOverManager : MonoBehaviour {
 	float restartTimer;
 
 	void Awake(){
+		player = RigidbodyFirstPersonController.player;
 		anim = GetComponent<Animator> ();
 	}
 
@@ -37,6 +40,7 @@ public class GameOverManager : MonoBehaviour {
 		Cursor.visible = true;
 		musicChanger.EndGame ();
 		anim.SetTrigger ("GameOver");
+		player.enabled = false;
 		//Time.timeScale = 0f;
 
 
