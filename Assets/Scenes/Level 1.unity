@@ -8402,7 +8402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jungle: {fileID: 8300000, guid: 0853617ec0cce144d82b448d526e3e37, type: 3}
   tribe: {fileID: 8300000, guid: e51349d13000af546800e11a88e20703, type: 3}
-  endSong: {fileID: 0}
+  endSong: {fileID: 8300000, guid: c82189c39acde7147837cd62c2284632, type: 3}
 --- !u!1 &1450665906
 GameObject:
   m_ObjectHideFlags: 0
@@ -11255,6 +11255,86 @@ MonoBehaviour:
   - {fileID: 1659108508}
   - {fileID: 697360684}
   correctPosition: {x: 0, y: 0, z: 0}
+--- !u!82 &1856947547
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1856947545}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &1858849618
 GameObject:
   m_ObjectHideFlags: 0
@@ -14485,8 +14565,7 @@ MonoBehaviour:
   lookAngle: 100
   radius: 15
   reflectiveThreshold: 20
-  visibilityLocations:
-  - {fileID: 423503342}
+  visibilityLocations: [{fileID: 423503342}]
 --- !u!114 &1910077978
 MonoBehaviour:
   m_ObjectHideFlags: 0
