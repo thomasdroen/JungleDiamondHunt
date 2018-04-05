@@ -15,8 +15,12 @@ public class GameOverManager : MonoBehaviour {
 	Animator anim;
 	float restartTimer;
 
-	void Awake(){
+	void Start(){
 		player = RigidbodyFirstPersonController.player;
+
+	}
+
+	void Awake(){
 		anim = GetComponent<Animator> ();
 	}
 
