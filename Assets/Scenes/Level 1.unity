@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 935494478}
-  m_IndirectSpecularColor: {r: 0.8015039, g: 0.7082219, b: 0.6230049, a: 1}
+  m_IndirectSpecularColor: {r: 0.8037745, g: 0.7082275, b: 0.62298775, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -7377,7 +7377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 492797118}
-  musicChanger: {fileID: 1430307989}
+  musicChanger: {fileID: 0}
 --- !u!1 &1301174122
 GameObject:
   m_ObjectHideFlags: 0
@@ -8561,7 +8561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jungle: {fileID: 8300000, guid: 0853617ec0cce144d82b448d526e3e37, type: 3}
   tribe: {fileID: 8300000, guid: e51349d13000af546800e11a88e20703, type: 3}
-  endSong: {fileID: 8300000, guid: c82189c39acde7147837cd62c2284632, type: 3}
+  endSong: {fileID: 0}
 --- !u!1 &1450665906
 GameObject:
   m_ObjectHideFlags: 0
@@ -11230,7 +11230,7 @@ MonoBehaviour:
   correctImage: {fileID: 627808385}
   wrongImage: {fileID: 2029012586}
   continueText: {fileID: 506937172}
-  backButton: {fileID: 0}
+  backButton: {fileID: 1410651824}
   quests:
   - {fileID: 11400000, guid: 961c314b8dfacf5469dfafdee1f5881c, type: 2}
   - {fileID: 11400000, guid: 2391c26d9962f084a8cbe079f48353e2, type: 2}
@@ -11243,7 +11243,7 @@ MonoBehaviour:
   collectibleCounterText: {fileID: 343566556}
   collectibleSpawns: {fileID: 1783787327}
   minimap: {fileID: 363831942}
-  gate: {fileID: 0}
+  gate: {fileID: 1635539488}
 --- !u!1 &1852883331
 GameObject:
   m_ObjectHideFlags: 0
