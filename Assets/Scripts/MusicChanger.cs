@@ -63,6 +63,11 @@ public class MusicChanger : MonoBehaviour {
         source.Pause();
     }
 
+	public void Stop()
+	{
+		source.Stop ();
+	}
+
 	public void EndGame(){
 		source.Stop();
 		source.clip = endSong;
