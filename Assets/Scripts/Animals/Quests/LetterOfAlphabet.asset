@@ -9,19 +9,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88867020886b99b45a38386b0124e49f, type: 3}
-  m_Name: NorwegianFlag
+  m_Name: LetterOfAlphabet
   m_EditorClassIdentifier: 
-  questDescription: What are the three colors of the norwegian flag?
+  questDescription: What letter is at the 17'th place in the alphabet?
   answers:
-  - answerText: Red, white and blue
+  - answerText: R
+    correct: 0
+    extraInfo: Try again.
+  - answerText: O
+    correct: 0
+    extraInfo: Try again.
+  - answerText: Q
     correct: 1
-    extraInfo: Yep. correct.
-  - answerText: Red green and blue
+    extraInfo: Yes, correct.
+  - answerText: T
     correct: 0
-    extraInfo: uh.. no.
-  - answerText: Yellow and blue
-    correct: 0
-    extraInfo: What? This is not Sweden!
-  - answerText: Red and white
-    correct: 0
-    extraInfo: Missed a color there.
+    extraInfo: Try again.

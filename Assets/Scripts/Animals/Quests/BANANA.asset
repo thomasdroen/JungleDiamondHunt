@@ -9,19 +9,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88867020886b99b45a38386b0124e49f, type: 3}
-  m_Name: test3
+  m_Name: BANANA
   m_EditorClassIdentifier: 
-  questDescription: What letter is at the 17'th place in the alphabet?
+  questDescription: What food do I love to eat?
   answers:
-  - answerText: R
-    correct: 0
-    extraInfo: wrong
-  - answerText: Q
+  - answerText: BANANA!
     correct: 1
-    extraInfo: Yes, correct.
-  - answerText: T
-    correct: 0
-    extraInfo: no.
-  - answerText: O
-    correct: 0
-    extraInfo: no.
+    extraInfo: YES!
+  - answerText: BANANA!!
+    correct: 1
+    extraInfo: YES! With 2 exclamation marks!
+  - answerText: BANANA!!!
+    correct: 1
+    extraInfo: YES! With 3 exclamation marks!

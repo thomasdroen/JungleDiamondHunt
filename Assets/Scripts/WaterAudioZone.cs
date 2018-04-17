@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts;
 
 public class WaterAudioZone : MonoBehaviour
 {
-    private string theCollider;
+	private GameObject theCollider;
 
     void OnTriggerEnter(Collider other)
     {
-        theCollider = other.tag;
-        if (theCollider == "Player")
+		theCollider = other.gameObject;
+		if (theCollider == RigidbodyFirstPersonController.player.gameObject)
         {
             GetComponent<AudioSource>().Play();
             GetComponent<AudioSource>().loop = true;
@@ -17,8 +18,8 @@ public class WaterAudioZone : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        theCollider = other.tag;
-        if (theCollider == "Player")
+		theCollider = other.gameObject;
+		if (theCollider == RigidbodyFirstPersonController.player.gameObject)
         {
             GetComponent<AudioSource>().Stop();
             GetComponent<AudioSource>().loop = false;

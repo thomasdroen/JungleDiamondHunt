@@ -9,11 +9,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d1c5190a22880c48bc583f54b7e36ae, type: 3}
-  m_Name: testCollect
+  m_Name: BananaQuest
   m_EditorClassIdentifier: 
-  questDescription: I could really need some bananas right now. please help me.
+  questDescription: I could really need some bananas right now. Can you please get
+    some for me and bring them back here?
   collectibleSprite: {fileID: 21300000, guid: 28ef437cf475e6a4c998e136a8f54d4e, type: 3}
   numberOfCollectibles: 3
   notEnough: Sorry, but i need 3 bananas to be satisfied. You have $. Come back when
     you have enough.
-  finishWithQuestText: Thank you, Champion! I live to see another day.
+  finishWithQuestText: Thank you! As a reward I have opened my tower where i have
+    hidden my diamond.

@@ -9,22 +9,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88867020886b99b45a38386b0124e49f, type: 3}
-  m_Name: CapitalOfNorway
+  m_Name: NorwayLocation
   m_EditorClassIdentifier: 
-  questDescription: What is the capital of Norway?
+  questDescription: Which continent is Norway located in?
   answers:
-  - answerText: Oslo
+  - answerText: Europe
     correct: 1
-    extraInfo: Yes, correct.
-  - answerText: Trondheim
+    extraInfo: Yes! Norway is located in Europe.
+  - answerText: America
     correct: 0
-    extraInfo: No, unfortunately not.
-  - answerText: Bergen
+    extraInfo: That is wrong.
+  - answerText: Oceania
     correct: 0
-    extraInfo: No.
-  - answerText: "\xC5lesund"
+    extraInfo: Nope.
+  - answerText: Africa
     correct: 0
-    extraInfo: Haha, you wish.
-  - answerText: Kristiandsand
+    extraInfo: Africa is not correct.
+  - answerText: Asia
     correct: 0
-    extraInfo: Uh, no. I have no clue how you got that answer.
+    extraInfo: No, wrong.
