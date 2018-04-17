@@ -239,8 +239,8 @@ public class SettingsMenu : Menu
         QualitySettings.SetQualityLevel(quality);
         Screen.SetResolution(resolution.width, resolution.height, fullscreen, resolution.refreshRate);
         mainCamera.fieldOfView = fov;
-        audioMixer.SetFloat("musicVolume", GetCorrectVolume(musicVolume));
-        audioMixer.SetFloat("sfxVolume", GetCorrectVolume(sfxVolume));
+        audioMixer.SetFloat("musicVolume", GetCorrectVolume(musicVolume) * 80);
+        audioMixer.SetFloat("sfxVolume", GetCorrectVolume(sfxVolume) * 80);
 
     }
 

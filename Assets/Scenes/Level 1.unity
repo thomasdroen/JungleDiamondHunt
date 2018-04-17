@@ -1856,7 +1856,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 400, y: -131.26012}
+  m_AnchoredPosition: {x: 400, y: -131.34666}
   m_SizeDelta: {x: 191.61, y: 56.21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &337961975
@@ -4321,7 +4321,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 400, y: -318.70013}
+  m_AnchoredPosition: {x: 400, y: -318.78668}
   m_SizeDelta: {x: 191.61, y: 56.21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &687716193
@@ -8485,7 +8485,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 400, y: -256.22012}
+  m_AnchoredPosition: {x: 400, y: -256.30667}
   m_SizeDelta: {x: 191.61, y: 56.21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1381219846
@@ -14942,7 +14942,7 @@ MonoBehaviour:
     volume: 0.5
     pitch: 1
   - name: song2
-    soundClip: {fileID: 8300000, guid: e51349d13000af546800e11a88e20703, type: 3}
+    soundClip: {fileID: 8300000, guid: 1a211bd9a04875345912f940888ffea2, type: 3}
     source: {fileID: 0}
     audioMixerOutput: {fileID: 243402413291977834, guid: bf85e8ef182b3824883e5e6cd6722ebd,
       type: 2}
@@ -15387,7 +15387,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 400, y: -193.74011}
+  m_AnchoredPosition: {x: 400, y: -193.82666}
   m_SizeDelta: {x: 191.61, y: 56.21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1918722532
@@ -16583,15 +16583,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 65.8
+      value: 135.7
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.9
+      value: 16.7
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 42.8
+      value: 71.1
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
       propertyPath: m_LocalRotation.x
