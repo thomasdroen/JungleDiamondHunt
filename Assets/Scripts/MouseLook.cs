@@ -52,7 +52,7 @@ namespace Assets.Scripts
                 camera.localRotation = m_CameraTargetRot;
             }
 
-            UpdateCursorLock();
+            //UpdateCursorLock();
         }
 
         public void SetCursorLock(bool value)
@@ -65,41 +65,41 @@ namespace Assets.Scripts
             }
         }
 
-        public void UpdateCursorLock()
-        {
-            //if the user set "lockCursor" we check & properly lock the cursos
-            if (lockCursor)
-                InternalLockUpdate();
-        }
+   //     public void UpdateCursorLock()
+   //     {
+   //         //if the user set "lockCursor" we check & properly lock the cursos
+   //         if (lockCursor)
+   //             InternalLockUpdate();
+   //     }
 
-        private void InternalLockUpdate()
-        {
-			if(Input.GetKeyUp(KeyCode.Escape)&PauseMenu.GameIsPaused == false)
-            {
-                m_cursorIsLocked = true;
+   //     private void InternalLockUpdate()
+   //     {
+			//if(Input.GetKeyUp(KeyCode.Escape)&PauseMenu.GameIsPaused == false)
+   //         {
+   //             m_cursorIsLocked = true;
 
-            }
-			else if(Input.GetKeyUp(KeyCode.Escape)&PauseMenu.GameIsPaused == true)
-			{
-				m_cursorIsLocked = false;
+   //         }
+			//else if(Input.GetKeyUp(KeyCode.Escape)&PauseMenu.GameIsPaused == true)
+			//{
+			//	m_cursorIsLocked = false;
 
-			}
-            else if(Input.GetMouseButtonUp(0))
-            {
-                m_cursorIsLocked = true;
-            }
+			//}
+   //         else if(Input.GetMouseButtonUp(0))
+   //         {
+   //             m_cursorIsLocked = true;
+   //         }
 
-            if (m_cursorIsLocked)
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-            }
-            else if (!m_cursorIsLocked)
-            {
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-            }
-        }
+   //         if (m_cursorIsLocked)
+   //         {
+   //             Cursor.lockState = CursorLockMode.Locked;
+   //             Cursor.visible = false;
+   //         }
+   //         else if (!m_cursorIsLocked)
+   //         {
+   //             Cursor.lockState = CursorLockMode.None;
+   //             Cursor.visible = true;
+   //         }
+   //     }
 
         Quaternion ClampRotationAroundXAxis(Quaternion q)
         {

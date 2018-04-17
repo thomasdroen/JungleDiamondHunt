@@ -33,6 +33,16 @@ public class FovBySpeed
         }
     }
 
+    public void Setup()
+    {
+        CheckStatus(camera);
+        originalFov = camera.fieldOfView;
+        sprintTargetFov = originalFov + 10;
+
+        UpdateFovValues(0);
+
+    }
+
     public void UpdateFovValues(float run)
     {
 

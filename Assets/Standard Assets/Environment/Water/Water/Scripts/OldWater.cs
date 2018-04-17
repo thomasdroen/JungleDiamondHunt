@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace UnityStandardAssets.Water
+namespace Assets.Scripts
 {
     [ExecuteInEditMode] // Make water live-update even when not in play mode
     public class OldWater : MonoBehaviour
@@ -33,6 +33,11 @@ namespace UnityStandardAssets.Water
         private int m_OldRefractionTextureSize = 0;
 
         private static bool s_InsideWater = false;
+
+        private void OnEnable()
+        {
+            
+        }
 
         // This is called when it's known that the object will be rendered by some
         // camera. We render reflections / refractions and do other updates here.
