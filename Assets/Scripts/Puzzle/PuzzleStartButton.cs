@@ -1,64 +1,65 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PuzzleStartButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler
+namespace Assets.Scripts.Puzzle
 {
-
-    public Color highlightColor;
-    private Color originalColor;
-
-    public Vector3 pressedPosition;
-    private Vector3 originalPosition;
-    private bool hasBeenPressed = false;
-
-    // Use this for initialization
-    void Start()
+    public class PuzzleStartButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler
     {
-        originalColor = GetComponent<Renderer>().material.color;
-        originalPosition = transform.localPosition;
-    }
 
+        public Color highlightColor;
+        private Color originalColor;
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        if (!hasBeenPressed)
-            GetComponent<Renderer>().material.color = highlightColor;
-    }
+        public Vector3 pressedPosition;
+        private Vector3 originalPosition;
+        private bool hasBeenPressed = false;
 
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        if (!hasBeenPressed)
-            GetComponent<Renderer>().material.color = originalColor;
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if (!hasBeenPressed)
+        // Use this for initialization
+        void Start()
         {
-            transform.localPosition = originalPosition + transform.rotation * pressedPosition;
-            hasBeenPressed = true;
-            PuzzleUI.Instance.StartPuzzle();
+            originalColor = GetComponent<Renderer>().material.color;
+            originalPosition = transform.localPosition;
         }
-    }
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        if (!hasBeenPressed)
-            transform.localPosition = originalPosition + transform.rotation * pressedPosition / 5;
-    }
 
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        if (!hasBeenPressed)
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            if (!hasBeenPressed)
+                GetComponent<Renderer>().material.color = highlightColor;
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            if (!hasBeenPressed)
+                GetComponent<Renderer>().material.color = originalColor;
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            if (!hasBeenPressed)
+            {
+                transform.localPosition = originalPosition + transform.rotation * pressedPosition;
+                hasBeenPressed = true;
+                PuzzleUI.Instance.StartPuzzle();
+            }
+        }
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            if (!hasBeenPressed)
+                transform.localPosition = originalPosition + transform.rotation * pressedPosition / 5;
+        }
+
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            if (!hasBeenPressed)
+                transform.localPosition = originalPosition;
+        }
+
+        public void reset()
+        {
             transform.localPosition = originalPosition;
-    }
-
-    public void reset()
-    {
-        transform.localPosition = originalPosition;
-        hasBeenPressed = false;
-        OnPointerExit(null);
+            hasBeenPressed = false;
+            OnPointerExit(null);
+        }
     }
 }

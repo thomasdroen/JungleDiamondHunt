@@ -16,8 +16,5 @@ public class DiamondManager : MonoBehaviour {
 			onEnter ();
 		}
 	}
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	
 }
