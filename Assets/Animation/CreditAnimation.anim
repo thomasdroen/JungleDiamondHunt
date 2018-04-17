@@ -44,21 +44,15 @@ AnimationClip:
       - serializedVersion: 2
         time: 0
         value: -850
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-      - serializedVersion: 2
-        time: 4.016667
-        value: -762
-        inSlope: 17.6
-        outSlope: 17.6
-        tangentMode: 136
+        inSlope: 45.933914
+        outSlope: 45.933914
+        tangentMode: 0
       - serializedVersion: 2
         time: 20
         value: 150
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
+        inSlope: 48.787037
+        outSlope: 48.787037
+        tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -191,7 +185,7 @@ AnimationClip:
         tangentMode: 136
       - serializedVersion: 2
         time: 20
-        value: 0
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -675,7 +669,7 @@ AnimationClip:
         tangentMode: 136
       - serializedVersion: 2
         time: 20
-        value: 0
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -898,21 +892,15 @@ AnimationClip:
       - serializedVersion: 2
         time: 0
         value: -850
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-      - serializedVersion: 2
-        time: 4.016667
-        value: -762
-        inSlope: 17.6
-        outSlope: 17.6
-        tangentMode: 136
+        inSlope: 45.933914
+        outSlope: 45.933914
+        tangentMode: 0
       - serializedVersion: 2
         time: 20
         value: 150
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
+        inSlope: 48.787037
+        outSlope: 48.787037
+        tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -1045,7 +1033,7 @@ AnimationClip:
         tangentMode: 136
       - serializedVersion: 2
         time: 20
-        value: 0
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1529,7 +1517,7 @@ AnimationClip:
         tangentMode: 136
       - serializedVersion: 2
         time: 20
-        value: 0
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 136

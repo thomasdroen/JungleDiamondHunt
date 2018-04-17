@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 114024089770684156}
   - component: {fileID: 114651858597194372}
   - component: {fileID: 95454188812006806}
-  - component: {fileID: 114525206345132956}
+  - component: {fileID: 114119329633425680}
   m_Layer: 5
   m_Name: EndCreditCanvas
   m_TagString: Untagged
@@ -235,6 +235,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Credits
+--- !u!114 &114119329633425680
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1972141828822952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c14553408121ea48a8f7773085c1e72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuName: EndCredit
+  endCreditUI: {fileID: 1360827586104672}
 --- !u!114 &114264202503963504
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -351,20 +364,6 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &114525206345132956
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1972141828822952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 404090b144bb37d46a1576550e5b628d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicChanger: {fileID: 0}
-  gameOver: {fileID: 0}
-  endCreditUI: {fileID: 1360827586104672}
 --- !u!114 &114590107183463026
 MonoBehaviour:
   m_ObjectHideFlags: 1
