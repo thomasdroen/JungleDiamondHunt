@@ -9,6 +9,7 @@ public class GameOverManager : MonoBehaviour {
 	public float restartedDelay =5f;
 	public DiamondManager diamond;
 	RigidbodyFirstPersonController player;
+	public bool checkIfGameIsOver = false;
 
 	public MusicChanger musicChanger; 
 
@@ -45,6 +46,7 @@ public class GameOverManager : MonoBehaviour {
 		musicChanger.EndGame ();
 		anim.SetTrigger ("GameOver");
 		player.enabled = false;
+		checkIfGameIsOver = true;
 		//Time.timeScale = 0f;
 
 
