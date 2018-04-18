@@ -30,7 +30,7 @@ namespace Assets.Scripts
         {
           //  m_CameraRefocus.GetFocusPoint();
             Vector3 newCameraPosition;
-            if (rigidbodyFirstPersonController.Velocity.sqrMagnitude > 30 && rigidbodyFirstPersonController.Grounded)
+            if (rigidbodyFirstPersonController.Velocity.sqrMagnitude > 2.5f && rigidbodyFirstPersonController.Grounded)
             {
                 Camera.transform.localPosition = motionBob.DoHeadBob(rigidbodyFirstPersonController.Velocity.magnitude*(rigidbodyFirstPersonController.Running ? RunningStrideLengthen : 1f), useHorizontalHeadbob);
                 newCameraPosition = Camera.transform.localPosition;

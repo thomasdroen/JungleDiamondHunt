@@ -50,13 +50,13 @@ namespace Assets.Scripts
                 if (start)
                 {
                     start.onPlayerInteract(gameObject);
+                    AudioManager.Instance.PlaySound("Opendoor");
                     return;
                 }
 
                 var puzzle = rHit.collider.transform.parent.GetComponent<PuzzleUI>();
                 if (puzzle)
                 {
-                    GetComponent<RigidbodyFirstPersonController>().enabled = false;
                     GetComponent<Rigidbody>().velocity = Vector3.zero;
                     puzzle.OpenPuzzleUi();
                 }

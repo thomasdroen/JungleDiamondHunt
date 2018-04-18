@@ -1,27 +1,40 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts;
 
 public class WaterAudioZone : MonoBehaviour
 {
-    private string theCollider;
+    private GameObject theCollider;
+    public HeadBob playerHeadBob;
 
     void OnTriggerEnter(Collider other)
     {
-        theCollider = other.tag;
-        if (theCollider == "Player")
+        if (other.gameObject == RigidbodyFirstPersonController.player.gameObject)
         {
-            GetComponent<AudioSource>().Play();
-            GetComponent<AudioSource>().loop = true;
+            if (playerHeadBob)
+            {
+                playerHeadBob.motionBob.inWater = true;
+                AudioManager.Instance.PlaySound("Splash");
+            }
+            else
+            {
+                Debug.LogError("Headbob not set!");
+            }
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        theCollider = other.tag;
-        if (theCollider == "Player")
+        if (other.gameObject == RigidbodyFirstPersonController.player.gameObject)
         {
-            GetComponent<AudioSource>().Stop();
-            GetComponent<AudioSource>().loop = false;
+            if (playerHeadBob)
+            {
+                playerHeadBob.motionBob.inWater = false;
+            }
+            else
+            {
+                Debug.LogError("Headbob not set!");
+            }
         }
     }
 }

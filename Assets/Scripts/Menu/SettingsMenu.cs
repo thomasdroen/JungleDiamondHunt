@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using Assets.Scripts;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.PostProcessing;
 using UnityEngine.UI;
 
 public class SettingsMenu : Menu
@@ -13,6 +14,7 @@ public class SettingsMenu : Menu
     public static SettingsMenu Instance;
 
     public static EventHandler<SettingsEventArgs> OnChangeSettings;
+    public static EventHandler<SettingsFovEventArgs> OnChangeFov;
 
     public Dropdown qualityDropdown;
     public Dropdown resolutionsDropdown;
@@ -22,6 +24,7 @@ public class SettingsMenu : Menu
     public Slider musicSlider;
     public Slider sfxSlider;
     public AudioMixer audioMixer;
+    public PostProcessingProfile postProcessing;
     [Space] public Text debugText;
     private Resolution[] resolutions;
 
@@ -91,6 +94,65 @@ public class SettingsMenu : Menu
         QualitySettings.SetQualityLevel(qualityLevel);
         if (OnChangeSettings != null)
             OnChangeSettings(this, new SettingsEventArgs { QualityLevel = qualityLevel });
+
+        switch (qualityLevel)
+        {
+            case 0:
+                postProcessing.ambientOcclusion.enabled = false;
+                postProcessing.antialiasing.enabled = false;
+                postProcessing.bloom.enabled = false;
+                postProcessing.motionBlur.enabled = false;
+                postProcessing.vignette.enabled = false;
+                break;
+
+            case 1:
+                postProcessing.ambientOcclusion.enabled = false;
+                postProcessing.antialiasing.enabled = false;
+                postProcessing.bloom.enabled = false;
+                postProcessing.motionBlur.enabled = false;
+                postProcessing.vignette.enabled = false;
+                break;
+
+            case 2:
+                postProcessing.ambientOcclusion.enabled = false;
+                postProcessing.antialiasing.enabled = true;
+                postProcessing.bloom.enabled = false;
+                postProcessing.motionBlur.enabled = false;
+                postProcessing.vignette.enabled = true;
+                break;
+
+            case 3:
+                postProcessing.ambientOcclusion.enabled = true;
+                postProcessing.antialiasing.enabled = true;
+                postProcessing.bloom.enabled = true;
+                postProcessing.motionBlur.enabled = false;
+                postProcessing.vignette.enabled = true;
+                break;
+
+            case 4:
+                postProcessing.ambientOcclusion.enabled = true;
+                postProcessing.antialiasing.enabled = true;
+                postProcessing.bloom.enabled = true;
+                postProcessing.motionBlur.enabled = true;
+                postProcessing.vignette.enabled = true;
+                break;
+
+            case 5:
+                postProcessing.ambientOcclusion.enabled = true;
+                postProcessing.antialiasing.enabled = true;
+                postProcessing.bloom.enabled = true;
+                postProcessing.motionBlur.enabled = true;
+                postProcessing.vignette.enabled = true;
+                break;
+
+            default:
+                postProcessing.ambientOcclusion.enabled = true;
+                postProcessing.antialiasing.enabled = true;
+                postProcessing.bloom.enabled = true;
+                postProcessing.motionBlur.enabled = true;
+                postProcessing.vignette.enabled = true;
+                break;
+        }
     }
 
     public void ToggleFullscreen(bool fullscreen)
@@ -104,6 +166,7 @@ public class SettingsMenu : Menu
         fovSlider.value = fov;
         fovField.text = "" + fov;
         mainCamera.fieldOfView = fov;
+        OnChaOnChangeFieldOfView(fov);
         if (RigidbodyFirstPersonController.player != null)
             RigidbodyFirstPersonController.player.fovBySpeed.Setup();
     }
@@ -120,6 +183,7 @@ public class SettingsMenu : Menu
         fovSlider.value = fov;
         fovField.text = "" + fov;
         mainCamera.fieldOfView = fov;
+        OnChaOnChangeFieldOfView(fov);
         RigidbodyFirstPersonController.player.fovBySpeed.Setup();
     }
 
@@ -242,6 +306,7 @@ public class SettingsMenu : Menu
         audioMixer.SetFloat("musicVolume", GetCorrectVolume(musicVolume) * 80);
         audioMixer.SetFloat("sfxVolume", GetCorrectVolume(sfxVolume) * 80);
 
+        OnChaOnChangeFieldOfView(fov);
     }
 
     private float GetCorrectVolume(float start)
@@ -251,5 +316,16 @@ public class SettingsMenu : Menu
         return result;
     }
 
+    public void OnChaOnChangeFieldOfView(float fov)
+    {
+        if (OnChangeFov != null)
+        {
+            OnChangeFov(this, new SettingsFovEventArgs{Fov = fov});
+        }
+    }
+}
 
+public class SettingsFovEventArgs : EventArgs
+{
+    public float Fov { get; set; }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -145,8 +145,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1.3135154}
-  m_SizeDelta: {x: 2560, y: 1447.3}
+  m_AnchoredPosition: {x: 0, y: -0.002499539}
+  m_SizeDelta: {x: 2560, y: 1440.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &228129881
 MonoBehaviour:
@@ -1280,6 +1280,12 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: MainMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 114146385538538066, guid: c24fc5d2c23ae4b4d9ff73a18754dcc8,
+        type: 2}
+      propertyPath: postProcessing
+      value: 
+      objectReference: {fileID: 11400000, guid: 1851443d01a183148a4c167bd732eba9,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c24fc5d2c23ae4b4d9ff73a18754dcc8, type: 2}
   m_IsPrefabParent: 0

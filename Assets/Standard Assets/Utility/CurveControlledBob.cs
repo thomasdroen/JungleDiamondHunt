@@ -15,8 +15,12 @@ namespace UnityStandardAssets.Utility
         public float VerticaltoHorizontalRatio = 1f;
 
         [Space]
-        public AudioSource audioSource;
+        public AudioSource[] feet;
+        [HideInInspector]
+        public bool inWater = false;
         public AudioClip[] footstepClips;
+        public AudioClip[] footstepWaterClips;
+        private int feetIndex = 0;
 
         private float m_CyclePositionX;
         private float m_CyclePositionY;
@@ -37,38 +41,48 @@ namespace UnityStandardAssets.Utility
 
         public Vector3 DoHeadBob(float speed, bool bobHorizontal)
         {
-            float xPos = m_OriginalCameraPosition.x + (Bobcurve.Evaluate(m_CyclePositionX)*HorizontalBobRange);
-            float yPos = m_OriginalCameraPosition.y + (Bobcurve.Evaluate(m_CyclePositionY)*VerticalBobRange);
+            float xPos = m_OriginalCameraPosition.x + (Bobcurve.Evaluate(m_CyclePositionX) * HorizontalBobRange);
+            float yPos = m_OriginalCameraPosition.y + (Bobcurve.Evaluate(m_CyclePositionY) * VerticalBobRange);
 
-            m_CyclePositionX += (speed*Time.deltaTime)/m_BobBaseInterval;
-            m_CyclePositionY += ((speed*Time.deltaTime)/m_BobBaseInterval)*VerticaltoHorizontalRatio;
+            m_CyclePositionX += (Mathf.Sqrt(speed) * Time.deltaTime) / m_BobBaseInterval * 4;
+            m_CyclePositionY += ((Mathf.Sqrt(speed) * Time.deltaTime) / m_BobBaseInterval) * VerticaltoHorizontalRatio * 4;
 
             if (m_CyclePositionX > m_Time)
             {
-                m_CyclePositionX =- m_Time;
+                m_CyclePositionX = -m_Time;
             }
             if (m_CyclePositionY > m_Time)
             {
-                m_CyclePositionY =- m_Time;
-                if (footstepClips.Length > 0)
-                {
-                    PlayFootstepSound();
-                }
+                m_CyclePositionY = -m_Time;
+                PlayFootstepSound(inWater ? footstepWaterClips : footstepClips);
             }
 
             return new Vector3(bobHorizontal ? xPos : 0f, yPos, 0f);
         }
 
-        private void PlayFootstepSound()
+        private void PlayFootstepSound(AudioClip[] clips)
         {
-            if (audioSource == null)
+            if (feet.Length <= 0)
             {
-                Debug.LogError("AudioSource not found.");
+                Debug.LogError("AudioSources not found.");
                 return;
             }
-            int randomClipIndex = Mathf.RoundToInt(Random.value * (footstepClips.Length - 1));
-            audioSource.clip = footstepClips[randomClipIndex];
-            audioSource.Play();
+
+            if (clips.Length <= 0)
+            {
+                Debug.LogError("clips are empty!");
+                return;
+            }
+
+
+            int randomClipIndex = Mathf.RoundToInt(Random.value * (clips.Length - 1));
+            AudioSource source = feet[feetIndex];
+            source.clip = clips[randomClipIndex];
+            source.pitch = 1.1f - Random.value * 0.2f;
+            source.Play();
+
+            feetIndex = feetIndex + 1 >= feet.Length ? 0 : feetIndex + 1;
+
         }
     }
 }

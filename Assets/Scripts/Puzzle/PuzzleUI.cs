@@ -23,7 +23,8 @@ namespace Assets.Scripts.Puzzle
         [Space]
         public Transform puzzlePieceContainer;
         [Space]
-        public Transform cameraToTransform;
+        public Transform cameraToMaxFov;
+        public Transform cameraToMinFov;
         public Transform cameraFromTransform;
         [Space] public PuzzleStartButton startButton;
         [Space]
@@ -36,8 +37,8 @@ namespace Assets.Scripts.Puzzle
         private Coroutine timerCoroutine;
 
         private Camera cam;
-
-        private bool UIOpened = false;
+        
+        public bool UIOpened { get; private set; }
         public Transform mazeTeleport;
         [Space] public Animator DiamondAnimator;
         public Transform diamond;
@@ -60,9 +61,28 @@ namespace Assets.Scripts.Puzzle
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.T))
+            if (Application.isEditor && Input.GetKeyDown(KeyCode.T))
             {
-                StartCoroutine(TranslateCameraFromUI(0.75f));
+                StartCoroutine(FinishGame());
+            }
+        }
+
+        private void OnEnable()
+        {
+            SettingsMenu.OnChangeFov += OnChangeFoV;
+        }
+
+        private void OnDisable()
+        {
+            SettingsMenu.OnChangeFov -= OnChangeFoV;
+        }
+
+        public void OnChangeFoV(object obj, SettingsFovEventArgs args)
+        {
+            if (UIOpened)
+            {
+                Debug.Log("Update fov");
+                cam.transform.position = getCameraEndPos();
             }
         }
 
@@ -78,13 +98,17 @@ namespace Assets.Scripts.Puzzle
             }
             else
             {
+                
                 StartCoroutine(TranslateCameraToUI(0.75f));
             }
         }
 
         IEnumerator TranslateCameraToUI(float time)
         {
+            EnablePlayer(false);
+
             Vector3 camStartPos = cam.transform.position;
+            Vector3 camEndPos = getCameraEndPos();
             originalCamPos = cam.transform.localPosition;
             originalCamRot = cam.transform.rotation;
             fromUIToPlayer = cam.transform.parent.position - transform.position;
@@ -95,16 +119,26 @@ namespace Assets.Scripts.Puzzle
             {
                 float interpolateValue = (Time.time - startTime) / time;
                 float smoothedInterpolatedValue = Mathf.Atan(interpolateValue * 3.43f - 0.9f) * 0.52f + 0.38f;
-                cam.transform.position = Vector3.Lerp(camStartPos, cameraToTransform.position, smoothedInterpolatedValue);
-                cam.transform.rotation = Quaternion.Lerp(originalCamRot, cameraToTransform.rotation, smoothedInterpolatedValue);
+                cam.transform.position = Vector3.Lerp(camStartPos, camEndPos, smoothedInterpolatedValue);
+                cam.transform.rotation = Quaternion.Lerp(originalCamRot, cameraToMaxFov.rotation, smoothedInterpolatedValue);
                 yield return null;
             }
-            cam.transform.position = cameraToTransform.position;
-            cam.transform.rotation = cameraToTransform.rotation;
+            cam.transform.position = camEndPos;
+            cam.transform.rotation = cameraToMaxFov.rotation;
+            UIOpened = true;
 
+            showCursor(true);
+        }
 
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+        private Vector3 getCameraEndPos()
+        {
+            return Vector3.Lerp(cameraToMinFov.position, cameraToMaxFov.position, (cam.fieldOfView - 65)/25);
+        }
+
+        private void EnablePlayer(bool enable)
+        {
+            cam.GetComponent<HeadBob>().enabled = enable;
+            RigidbodyFirstPersonController.player.enabled = enable;
         }
 
         IEnumerator TranslateCameraFromUI(float time)
@@ -113,9 +147,8 @@ namespace Assets.Scripts.Puzzle
             Quaternion currentCamRot = cam.transform.rotation;
 
             cam.transform.parent.position = cameraFromTransform.position;
-
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            UIOpened = false;
+            showCursor(true);
 
             Quaternion toRot = Quaternion.LookRotation(transform.position - cam.transform.parent.position, Vector3.up);
 
@@ -132,12 +165,8 @@ namespace Assets.Scripts.Puzzle
             cam.transform.position = cam.transform.parent.TransformPoint(originalCamPos);
             cam.transform.rotation = originalCamRot;
             minimap.SetActive(true);
-
+            
             //RigidbodyFirstPersonController.player.enabled = true;
-            DiamondAnimator.enabled = true;
-            AudioManager.Instance.PlaySound("lock");
-
-            StartCoroutine(finishGame(3.5f));
         }
 
         IEnumerator finishGame(float time)
@@ -197,7 +226,7 @@ namespace Assets.Scripts.Puzzle
                     return;
                 }
             }
-            StartCoroutine(FadeInFinishedPuzzle(2));
+            StartCoroutine(FinishGame());
             StopCoroutine(timerCoroutine);
         }
 
@@ -246,19 +275,41 @@ namespace Assets.Scripts.Puzzle
                 yield return null;
             }
             StartCoroutine(TeleportToMaze(0f));
-            //Debug.Log("Time is up");
+            AudioManager.Instance.PlaySound("Buzzer");
         }
 
         IEnumerator TeleportToMaze(float delay)
         {
             yield return StartCoroutine(TranslateCameraFromUI(0.75f));
             yield return new WaitForSeconds(delay);
-            RigidbodyFirstPersonController.player.enabled = true;
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            EnablePlayer(true);
+            showCursor(false);
             RigidbodyFirstPersonController.player.transform.position = mazeTeleport.position;
-
+            timeToFinishPuzzle += 30;
             reset();
+        }
+
+        IEnumerator FinishGame()
+        {
+            yield return StartCoroutine(FadeInFinishedPuzzle(2));
+            yield return StartCoroutine(TranslateCameraFromUI(0.75f));
+
+            DiamondAnimator.enabled = true;
+            AudioManager.Instance.PlaySound("lock");
+
+            StartCoroutine(finishGame(3.5f));
+        }
+
+        private void showCursor(bool show)
+        {
+            if (show)
+                Cursor.lockState = CursorLockMode.None;
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+
+            Cursor.visible = show;
         }
     }
 }
