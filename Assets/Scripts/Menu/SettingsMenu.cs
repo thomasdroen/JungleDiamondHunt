@@ -287,7 +287,6 @@ public class SettingsMenu : Menu
         int resIndex = Array.FindIndex(resolutions, res => res.width == resolution.width
                                                            && res.height == resolution.height
                                                            && res.refreshRate == resolution.refreshRate);
-        Debug.Log(resIndex);
         //debugText.text = "index: " + resIndex + " value: " + resolution;
         resolutionsDropdown.value = resIndex;
         resolutionsDropdown.RefreshShownValue();

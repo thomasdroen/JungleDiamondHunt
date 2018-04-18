@@ -33,14 +33,6 @@ namespace Assets.Scripts.Menu
             pauseGame(false);
         }
 
-        //private void Start()
-        //{
-        //    foreach (var menu in menus)
-        //    {
-        //        menu.CloseMenu();
-        //    }
-        //}
-
         private void Update()
         {
             if (CrossPlatformInputManager.GetButtonDown("Cancel") && !isGameFinished)
