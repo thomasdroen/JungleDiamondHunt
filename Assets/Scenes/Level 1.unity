@@ -327,15 +327,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4410953885666122, guid: b6e2c2abcf5004b4baec5b17e67f8a22, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -32.14
+      value: -26.48
       objectReference: {fileID: 0}
     - target: {fileID: 4410953885666122, guid: b6e2c2abcf5004b4baec5b17e67f8a22, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -9.3892
+      value: -7.38
       objectReference: {fileID: 0}
     - target: {fileID: 4410953885666122, guid: b6e2c2abcf5004b4baec5b17e67f8a22, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -33.99
+      value: -41.53
       objectReference: {fileID: 0}
     - target: {fileID: 4410953885666122, guid: b6e2c2abcf5004b4baec5b17e67f8a22, type: 2}
       propertyPath: m_LocalRotation.x
@@ -4324,7 +4324,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &514930276
 Prefab:
@@ -4398,7 +4398,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4410953885666122, guid: b6e2c2abcf5004b4baec5b17e67f8a22, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -10.633
+      value: -50.14
       objectReference: {fileID: 0}
     - target: {fileID: 4410953885666122, guid: b6e2c2abcf5004b4baec5b17e67f8a22, type: 2}
       propertyPath: m_LocalPosition.y
@@ -4406,7 +4406,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4410953885666122, guid: b6e2c2abcf5004b4baec5b17e67f8a22, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -63.745
+      value: -39.65
       objectReference: {fileID: 0}
     - target: {fileID: 4410953885666122, guid: b6e2c2abcf5004b4baec5b17e67f8a22, type: 2}
       propertyPath: m_LocalRotation.x
@@ -4637,7 +4637,7 @@ GameObject:
   - component: {fileID: 545469642}
   - component: {fileID: 545469641}
   - component: {fileID: 545469640}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: CircleTimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4997,7 +4997,7 @@ Prefab:
     - target: {fileID: 224773598119513732, guid: fcd5e9f6b98d4604b8a55cf0ae6089dd,
         type: 2}
       propertyPath: m_RootOrder
-      value: 25
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 224773598119513732, guid: fcd5e9f6b98d4604b8a55cf0ae6089dd,
         type: 2}
@@ -7455,7 +7455,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &859402194
 Prefab:
@@ -8089,7 +8089,7 @@ GameObject:
   - component: {fileID: 918918299}
   - component: {fileID: 918918301}
   - component: {fileID: 918918300}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Radial progressbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8223,7 +8223,7 @@ GameObject:
   - component: {fileID: 937177070}
   - component: {fileID: 937177069}
   - component: {fileID: 937177068}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Timer Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8246,7 +8246,7 @@ RectTransform:
   m_AnchorMin: {x: 0.9314832, y: 0.5}
   m_AnchorMax: {x: 0.9314832, y: 0.5}
   m_AnchoredPosition: {x: -203.28963, y: 1.3081703}
-  m_SizeDelta: {x: 461.42, y: 164.91}
+  m_SizeDelta: {x: 461.42, y: 165.03}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &937177068
 MonoBehaviour:
@@ -8748,7 +8748,7 @@ Prefab:
     - target: {fileID: 224596602219295866, guid: c24fc5d2c23ae4b4d9ff73a18754dcc8,
         type: 2}
       propertyPath: m_RootOrder
-      value: 26
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 224596602219295866, guid: c24fc5d2c23ae4b4d9ff73a18754dcc8,
         type: 2}
@@ -8898,6 +8898,27 @@ Prefab:
         type: 2}
       propertyPath: m_Color.a
       value: 0.6862745
+      objectReference: {fileID: 0}
+    - target: {fileID: 114246666418930544, guid: c24fc5d2c23ae4b4d9ff73a18754dcc8,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f6da9da8f86169d458dd7c956db130d9,
+        type: 3}
+    - target: {fileID: 114246666418930544, guid: c24fc5d2c23ae4b4d9ff73a18754dcc8,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0.9411765
+      objectReference: {fileID: 0}
+    - target: {fileID: 224998532774564926, guid: c24fc5d2c23ae4b4d9ff73a18754dcc8,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 224998532774564926, guid: c24fc5d2c23ae4b4d9ff73a18754dcc8,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c24fc5d2c23ae4b4d9ff73a18754dcc8, type: 2}
@@ -11558,7 +11579,7 @@ Transform:
   m_LocalScale: {x: 12, y: 1, z: 9.58}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1345880969
 Prefab:
@@ -12375,7 +12396,7 @@ GameObject:
   - component: {fileID: 1426937925}
   - component: {fileID: 1426937927}
   - component: {fileID: 1426937926}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Timer Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13422,7 +13443,7 @@ GameObject:
   - component: {fileID: 1575479947}
   - component: {fileID: 1575479946}
   - component: {fileID: 1575479945}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Time Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13436,7 +13457,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1575479943}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0000028887698}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0000017842}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1426937925}
@@ -13444,8 +13465,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -71.381226, y: 1.3071082}
-  m_SizeDelta: {x: 775.26263, y: 605.9371}
+  m_AnchoredPosition: {x: -71.381226, y: -0.0013924}
+  m_SizeDelta: {x: 775.3, y: 237.61}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1575479945
 MonoBehaviour:
@@ -19452,7 +19473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63d38c4a78b125f46bde96115c051acf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_WaterMode: 0
+  m_WaterMode: 2
   m_DisablePixelLights: 1
   m_TextureSize: 256
   m_ClipPlaneOffset: 0.07
@@ -20254,7 +20275,7 @@ Terrain:
   m_HeightmapMaximumLOD: 0
   m_CastShadows: 1
   m_DrawHeightmap: 1
-  m_DrawTreesAndFoliage: 0
+  m_DrawTreesAndFoliage: 1
   m_ReflectionProbeUsage: 1
   m_MaterialType: 0
   m_LegacySpecular:
@@ -21151,7 +21172,7 @@ RectTransform:
   m_Children:
   - {fileID: 339016660}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -21547,15 +21568,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 72.21
+      value: 75.55
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.47
+      value: 1.92
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 41.02
+      value: 42.47
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
       propertyPath: m_LocalRotation.x
