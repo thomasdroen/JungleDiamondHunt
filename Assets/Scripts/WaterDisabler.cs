@@ -12,14 +12,13 @@ public class WaterDisabler : MonoBehaviour
 
     private MeshRenderer waterMesh;
     private OldWater water;
+    private int TerrainLayerMask = 1 << 9;
 
     public bool useLookDirection = true; // checks if the main camera looks at the water and disables it. not useful for large bodies of water.
 
     public float lookAngle = 100;
     public float radius;
     public float reflectiveThreshold = 20;
-
-    public Transform[] visibilityLocations;
 
     void Start()
     {
@@ -35,15 +34,6 @@ public class WaterDisabler : MonoBehaviour
         Vector2 minimapPos = new Vector2(minimapCam.gameObject.transform.position.x, minimapCam.gameObject.transform.position.z);
 
         float dist = Vector2.Distance(thisPos, minimapPos);
-
-        //if (dist > reflectiveThreshold)
-        //{
-        //    water.m_WaterMode = OldWater.WaterMode.Reflective;
-        //}
-        //else
-        //{
-        //    water.m_WaterMode = OldWater.WaterMode.Refractive;
-        //}
 
         if (dist < radius)
         {
@@ -67,24 +57,24 @@ public class WaterDisabler : MonoBehaviour
             return;
         }
 
-        if (visibilityLocations.Length > 0)
+        if (transform.GetComponentsInChildren<Transform>().Length > 0)
         {
             
 
-            foreach (Transform location in visibilityLocations)
+            foreach (Transform location in transform.GetComponentsInChildren<Transform>())
             {
                 Vector3 fromMainCamToThis = location.position - mainCam.gameObject.transform.position;
                 float distance = fromMainCamToThis.magnitude;
                 Ray ray = new Ray(mainCam.gameObject.transform.position, fromMainCamToThis);
                 RaycastHit rHit;
                 
-                if (Physics.Raycast(ray, out rHit, distance))
+                if (!Physics.Raycast(ray, out rHit, distance, TerrainLayerMask))
                 {
-                    waterMesh.enabled = false;
+                    waterMesh.enabled = true;
                     return;
                 }
             }
-            waterMesh.enabled = true;
+            waterMesh.enabled = false;
         }
 
     }

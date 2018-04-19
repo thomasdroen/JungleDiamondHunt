@@ -10,7 +10,7 @@ namespace Assets.Scripts.Puzzle
 
         public PuzzlePiece[] adjacentPieces;
 
-        public bool isSet { get; private set; }
+        public bool isSet { get; set; }
 
         [SerializeField]
         private Vector3 correctPosition;
@@ -118,6 +118,13 @@ namespace Assets.Scripts.Puzzle
             Vector3 globalMousePos;
             RectTransformUtility.ScreenPointToWorldPointInRectangle(parentCanvas, eventData.position, eventData.pressEventCamera, out globalMousePos);
             return globalMousePos;
+        }
+
+        public void CheatPiece()
+        {
+            isSet = true;
+            rTransform.position = correctPosition;
+            PuzzleUI.Instance.CheckIfPuzzleIsComplete();
         }
 
     }

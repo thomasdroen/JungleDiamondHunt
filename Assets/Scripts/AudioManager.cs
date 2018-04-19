@@ -55,7 +55,7 @@ public class AudioManager : MonoBehaviour
         PlayNextSong();
     }
 
-    private void PlayNextSong()
+    public void PlayNextSong()
     {
         if (musicSounds.Count <= 0)
         {

@@ -37,7 +37,9 @@ namespace Assets.Scripts.Puzzle
         private Coroutine timerCoroutine;
 
         private Camera cam;
-        
+
+        private bool puzzleStarted = false;
+
         public bool UIOpened { get; private set; }
         public Transform mazeTeleport;
         [Space] public Animator DiamondAnimator;
@@ -61,9 +63,15 @@ namespace Assets.Scripts.Puzzle
 
         void Update()
         {
-            if (Application.isEditor && Input.GetKeyDown(KeyCode.T))
+            if (UIOpened && puzzleStarted &&Input.GetKeyDown(KeyCode.T))
             {
-                StartCoroutine(FinishGame());
+                foreach(PuzzlePiece piece in puzzlePieceContainer.GetComponentsInChildren<PuzzlePiece>())
+                {
+                    if (!piece.isSet)
+                    {
+                        piece.CheatPiece();
+                    }
+                }
             }
         }
 
@@ -204,6 +212,7 @@ namespace Assets.Scripts.Puzzle
                 //numberOfPuzzlePieces++;
             }
             timerCoroutine = StartCoroutine(StartTimer());
+            puzzleStarted = true;
         }
 
         public void FindMissingPieces()
@@ -236,10 +245,17 @@ namespace Assets.Scripts.Puzzle
             timerText.text = "";
             radialTimer.fillAmount = 1;
             startButton.reset();
+            puzzleStarted = false;
+            UIOpened = false;
 
             puzzlePieceContainer.gameObject.SetActive(false);
             finishedPuzzle.canvasRenderer.SetAlpha(0);
             timerCoroutine = null;
+
+            foreach(PuzzlePiece piece in puzzlePieceContainer.transform.GetComponentsInChildren<PuzzlePiece>())
+            {
+                piece.isSet = false;
+            }
         }
 
         IEnumerator FadeInFinishedPuzzle(float time)
@@ -274,6 +290,7 @@ namespace Assets.Scripts.Puzzle
                 radialTimer.fillAmount = timeLeft / timeToFinishPuzzle;
                 yield return null;
             }
+            puzzleStarted = false;
             StartCoroutine(TeleportToMaze(0f));
             AudioManager.Instance.PlaySound("Buzzer");
         }
@@ -287,6 +304,7 @@ namespace Assets.Scripts.Puzzle
             RigidbodyFirstPersonController.player.transform.position = mazeTeleport.position;
             timeToFinishPuzzle += 30;
             reset();
+            AudioManager.Instance.PlaySound("Scream");
         }
 
         IEnumerator FinishGame()

@@ -130,8 +130,14 @@ namespace Assets.Scripts.Menu
         public IEnumerator showCredits(float time)
         {
             float startTime = Time.time;
+            bool hasMeowed = false;
             while (startTime + time > Time.time)
             {
+                if(!hasMeowed && startTime + time < Time.time + 1)
+                {
+                    hasMeowed = true;
+                    AudioManager.Instance.PlaySound("Lion");
+                }
                 yield return null;
             }
             OpenMenu("EndCredit");
