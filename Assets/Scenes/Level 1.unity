@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1.85
+  m_AmbientIntensity: 1.25
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 71f14a2d79f732f4d9893ef1b911f4ff, type: 2}
@@ -2065,7 +2065,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 400, y: -100.1255}
+  m_AnchoredPosition: {x: 400, y: -99.957306}
   m_SizeDelta: {x: 191.61, y: 56.21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &337961975
@@ -3213,8 +3213,8 @@ RectTransform:
   m_Children:
   - {fileID: 337961974}
   - {fileID: 1918722531}
-  - {fileID: 626208043}
   - {fileID: 1381219845}
+  - {fileID: 626208043}
   - {fileID: 687716192}
   m_Father: {fileID: 1298608013}
   m_RootOrder: 0
@@ -3236,7 +3236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.015686275}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.59}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3264,7 +3264,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 492797118}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 9263673be0d38b84a96b0ff874b39000, type: 2}
   m_CullingMode: 0
@@ -4443,11 +4443,11 @@ RectTransform:
   m_Children:
   - {fileID: 1636791129}
   m_Father: {fileID: 492797119}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 400, y: -225.0855}
+  m_AnchoredPosition: {x: 400, y: -287.3973}
   m_SizeDelta: {x: 191.61, y: 56.21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &626208044
@@ -5032,7 +5032,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 400, y: -350.04553}
+  m_AnchoredPosition: {x: 400, y: -349.87732}
   m_SizeDelta: {x: 191.61, y: 56.21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &687716193
@@ -7332,6 +7332,11 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: 1851443d01a183148a4c167bd732eba9,
         type: 2}
+    - target: {fileID: 114243471590808860, guid: c24fc5d2c23ae4b4d9ff73a18754dcc8,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0.6862745
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c24fc5d2c23ae4b4d9ff73a18754dcc8, type: 2}
   m_IsPrefabParent: 0
@@ -9693,11 +9698,11 @@ RectTransform:
   m_Children:
   - {fileID: 1309658729}
   m_Father: {fileID: 492797119}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 400, y: -287.56552}
+  m_AnchoredPosition: {x: 400, y: -224.9173}
   m_SizeDelta: {x: 191.61, y: 56.21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1381219846
@@ -12333,7 +12338,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -13342,7 +13347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuName: Animal
-  numberOfQuestsNeeded: 8
+  numberOfQuestsNeeded: 5
   QuestDescription: {fileID: 1450665908}
   buttons:
   - {fileID: 180785719}
@@ -17087,7 +17092,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 400, y: -162.6055}
+  m_AnchoredPosition: {x: 400, y: -162.4373}
   m_SizeDelta: {x: 191.61, y: 56.21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1918722532
@@ -18499,7 +18504,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 68.59
+      value: 47.61
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
       propertyPath: m_LocalPosition.y
@@ -18507,7 +18512,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 40.99
+      value: 130.4
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
       propertyPath: m_LocalRotation.x
@@ -18731,7 +18736,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
       propertyPath: near clip plane
-      value: 0.05
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 13600000, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
       propertyPath: m_Material

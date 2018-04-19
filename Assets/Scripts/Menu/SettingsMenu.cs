@@ -94,6 +94,8 @@ public class SettingsMenu : Menu
         QualitySettings.SetQualityLevel(qualityLevel);
         if (OnChangeSettings != null)
             OnChangeSettings(this, new SettingsEventArgs { QualityLevel = qualityLevel });
+        mainCamera.enabled = false;
+        mainCamera.enabled = true;
 
         switch (qualityLevel)
         {

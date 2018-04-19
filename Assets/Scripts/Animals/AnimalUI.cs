@@ -132,7 +132,6 @@ namespace Assets.Scripts.Animals
 
         public void LoadQuest(Quest quest)
         {
-            Debug.Log(numberOfQuestsNeeded);
             backButton.gameObject.SetActive(true);
             if (numberOfQuestsNeeded <= 0)
             {

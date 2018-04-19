@@ -9,7 +9,7 @@ public class LookAtPlayer : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(cam.transform.position, Vector3.up);
-
+        Vector3 toCam = cam.transform.position - transform.position;
+        transform.rotation = Quaternion.LookRotation(new Vector3(toCam.x, 0, toCam.z));
     }
 }
