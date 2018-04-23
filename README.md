@@ -6,8 +6,13 @@
 * Version 1.2
 
 ## The idea from three brilliant fourth graders
- This game intended simulate a real client-to-developer relationship, where the developers would work in an 
+The game specifications came from three young clients, tasked with coming up with their idea of a fun game 
+The project intended simulate a real client-to-developer relationship, where the developers would work in an 
  agility based workflow and get continued feedback from the client during developement.
+ 
+## The Game
+In Jungle Diamond Hunt the player is located in the jungle, where the goal is to find a diamond.
+You will have to solve quizzes, collect food and solve puzzles. But beware, You will fall into the maze if you are not quick enough!
 
 
 ##Screenshots:
