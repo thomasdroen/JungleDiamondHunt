@@ -290,6 +290,7 @@ namespace Assets.Scripts.Puzzle
         {
             float startTime = Time.time;
             float timeLeft = timeToFinishPuzzle;
+            looseGame = false;
             while (Time.time < startTime + timeToFinishPuzzle && !looseGame)
             {
                 timeLeft -= Time.deltaTime;
