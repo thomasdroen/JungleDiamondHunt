@@ -266,7 +266,6 @@ namespace Assets.Scripts
             {
                 m_IsGrounded = true;
                 m_GroundContactNormal = hitInfo.normal;
-                Debug.Log("Grounded");
             }
             else
             {

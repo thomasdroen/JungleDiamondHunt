@@ -39,6 +39,7 @@ namespace Assets.Scripts.Puzzle
         private Camera cam;
 
         private bool puzzleStarted = false;
+        private bool looseGame = false;
 
         public bool UIOpened { get; private set; }
         public Transform mazeTeleport;
@@ -63,14 +64,22 @@ namespace Assets.Scripts.Puzzle
 
         void Update()
         {
-            if (UIOpened && puzzleStarted &&Input.GetKeyDown(KeyCode.T))
+            if (UIOpened && puzzleStarted)
             {
-                foreach(PuzzlePiece piece in puzzlePieceContainer.GetComponentsInChildren<PuzzlePiece>())
+                if (Input.GetKeyDown(KeyCode.T))
                 {
-                    if (!piece.isSet)
+                    foreach (PuzzlePiece piece in puzzlePieceContainer.GetComponentsInChildren<PuzzlePiece>())
                     {
-                        piece.CheatPiece();
+                        if (!piece.isSet)
+                        {
+                            piece.CheatPiece();
+                        }
                     }
+                }
+
+                if (Input.GetKeyDown(KeyCode.L))
+                {
+                    looseGame = true;
                 }
             }
         }
@@ -281,7 +290,7 @@ namespace Assets.Scripts.Puzzle
         {
             float startTime = Time.time;
             float timeLeft = timeToFinishPuzzle;
-            while (Time.time < startTime + timeToFinishPuzzle)
+            while (Time.time < startTime + timeToFinishPuzzle && !looseGame)
             {
                 timeLeft -= Time.deltaTime;
                 int minutes = (int)(timeLeft / 60);
@@ -290,6 +299,8 @@ namespace Assets.Scripts.Puzzle
                 radialTimer.fillAmount = timeLeft / timeToFinishPuzzle;
                 yield return null;
             }
+
+            looseGame = false;
             puzzleStarted = false;
             StartCoroutine(TeleportToMaze(0f));
             AudioManager.Instance.PlaySound("Buzzer");

@@ -25,6 +25,7 @@ public class TerrainSettingsModifier : MonoBehaviour
 
     private void OnSettingsChanged(object obj, SettingsEventArgs args)
     {
+        
         switch (args.QualityLevel)
         {
             case 0:
