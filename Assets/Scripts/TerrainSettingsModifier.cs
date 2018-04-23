@@ -34,32 +34,38 @@ public class TerrainSettingsModifier : MonoBehaviour
             case 1:
                 terrain.drawTreesAndFoliage = true;
                 terrain.detailObjectDistance = 15;
+                terrain.detailObjectDensity = 0.2f;
                 break;
 
             case 2:
                 terrain.drawTreesAndFoliage = true;
                 terrain.detailObjectDistance = 20;
+                terrain.detailObjectDensity = 0.25f;
                 break;
 
             case 3:
                 terrain.drawTreesAndFoliage = true;
                 terrain.detailObjectDistance = 20;
+                terrain.detailObjectDensity = 0.5f;
                 break;
 
             case 4:
                 terrain.drawTreesAndFoliage = true;
                 terrain.detailObjectDistance = 25;
+                terrain.detailObjectDensity = 0.5f;
                 break;
 
             case 5:
                 terrain.drawTreesAndFoliage = true;
                 terrain.detailObjectDistance = 25;
+                terrain.detailObjectDensity = 0.75f;
                 break;
 
-           default:
-               terrain.drawTreesAndFoliage = true;
+            default:
+                terrain.drawTreesAndFoliage = true;
                 terrain.detailObjectDistance = 25;
-               break;
+                terrain.detailObjectDensity = 1;
+                break;
         }
     }
 }
